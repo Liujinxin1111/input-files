@@ -1,5 +1,0 @@
-trajin ../md2.crd 0 100000 10
-#trajin ../../md3/md3.crd 0 250000 5
-#trajin ../../md2-84/md3.crd 0 250000 5
-rms first :43-756@CA
-matrix dist  :43-756@CA  name r1 out p-d.dat byres
