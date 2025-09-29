@@ -1,0 +1,5 @@
+trajin ../md2.crd 0 100000 100
+#trajin ../../md3/md3.crd 0 250000 5
+#trajin ../../md2-84/md3.crd 0 250000 5
+rms first :1-427@CA
+matrix correl :1-427@CA name r1 out p-d.dat byres

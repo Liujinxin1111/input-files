@@ -1,0 +1,16 @@
+source leaprc.protein.ff19SB
+source leaprc.water.opc
+#source leaprc.gaff	
+
+#loadamberprep ligand.prepi
+#loadamberparams ligand.frcmod
+
+p = loadpdb pro1.pdb
+l = loadpdb pro2.pdb
+c = combine { p l }
+
+savepdb p pro1.pdb
+savepdb l pro2.pdb
+savepdb c com.pdb
+
+quit
