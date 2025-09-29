@@ -1,0 +1,20 @@
+#!/bin/bash 
+#source /opt/intel/bin/compilervars.sh intel64
+#source /public/software/env_scripts/intel_2015-env.sh
+#source /public/software/env_scripts/cuda-8.0-env.sh
+#source /public/software/env_scripts/openmpi-1.8.8-intel-env.sh
+#source /public/software/amber18/amber.sh
+source /public/software/amber20/amber.sh
+
+export CUDA_VISIBLE_DEVICES="1"
+   
+   
+   
+pmemd.cuda -O -i min1.in -p pep.top -c pep.crd  -o  min1.out -r min1.rst -ref pep.crd < /dev/null
+pmemd.cuda -O -i min2.in -p pep.top -c min1.rst -o  min2.out -r min2.rst  < /dev/null
+pmemd.cuda -O -i md0.in  -p pep.top -c min2.rst -o  md0.out  -x md0.crd -r md0.rst -ref min2.rst < /dev/null
+pmemd.cuda -O -i md1.in  -o md1.out -p pep.top  -c  md0.rst  -r md1.rst -x md1.crd  < /dev/null
+pmemd.cuda -O -i md2.in  -o md2.out -p pep.top  -c  md1.rst  -r md2.rst -x md2.crd  < /dev/null
+
+
+
